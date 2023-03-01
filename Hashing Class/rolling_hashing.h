@@ -12,7 +12,7 @@ class StringHashing
 	function<bool(int,int,int,int)> match_two_sub; 
 	vector<T> hash,pp,ipp; 
 	T p,ip,mod; 
-	StringHashing(string  w)
+	StringHashing(string  w,int N)
 	{
 		/*TODO Base values of mod, p, ip needs to be updated if you are using different X*/
 		mod={(int)1e9+7,(int)1e8+7}; 

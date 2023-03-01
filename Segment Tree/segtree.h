@@ -13,20 +13,20 @@ public:
 	vector<L> lazy;
 	vector<A> a;
 	// T tmp;
-	segTree(int n) : n(n), t(4 * n), lazy(4 * n) {}
+	segTree(int n) : n(n), t(4 * n), lazy(4 * n,0) {}
 	T mer(T a, T b);
 	void build(int p, int l, int r)
 	{
 		if (l == r)
 		{
-			t[p] = a[l];
+			t[p] = a[l]; 
 			return void();
 		}
 		build(toleft);
 		build(toright);
 		t[p] = mer(t[left], t[right]);
 	}
-	void push(int p, int l, int r);
+	void push(int p, int l, int r); 
 	T query(int p, int l, int r, int i, int j)
 	{
 		push(p, l, r);
@@ -40,6 +40,7 @@ public:
 	}
 	template <typename V, typename... Args>
 	void lazy_oper(int p, int l, int r, V val, Args... args);
+	
 	template <typename... V>
 	void update(int p, int l, int r, int i, int j, V... val)
 	{
